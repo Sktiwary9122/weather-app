@@ -11,11 +11,53 @@
     --colorLight2: #F9F7F7;
 }
 .wrapper{
+    position: relative;
     width: 100vw;
     height: 100vh;
     color: var(--colorLight2);
     background-image: linear-gradient(160deg, #112d4e 0%, #3f72af 100%);
     overflow-x: hidden;
+    
+}
+.img1{
+    position: absolute;
+    object-fit: cover;
+    bottom:0px;
+    opacity: 20%;
+}
+.img2{
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    opacity: 80%;
+    animation: woo 10s ease-in-out infinite ;
+}
+
+
+@keyframes woo {
+    50%{
+        left: 80px;
+    }
+    100%{
+        left: 10px;
+    }
+    
+}
+.img3{
+    position: absolute;
+    top: 150px;
+    left: 1200px;
+    opacity: 80%;
+    animation: boo 15s ease-in-out infinite ;
+}
+@keyframes boo {
+    50%{
+        left: 1000px;
+    }
+    100%{
+        left: 1200px;
+    }
+    
 }
 h1{
     text-align: center;
@@ -134,7 +176,7 @@ h1{
 .parameter{
     width: 30%;
     max-width: 200px;
-    background-color: rgba(219, 226, 239, 0.5);
+    background-color: rgb(130, 147, 193);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -192,4 +234,14 @@ h1{
     align-items: center;
     justify-content: center;
     margin-top: 1rem
+}
+.error-page{
+    margin: auto auto;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.error-page.active{
+    display: flex;
 }

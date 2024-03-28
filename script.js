@@ -6,7 +6,7 @@ const grantAccessContainer = document.querySelector(".grant-location-container")
 const searchForm = document.querySelector("[data-searchForm]");
 const loadingScreen = document.querySelector(".loading-container");
 const userInfoContainer = document.querySelector(".user-info-container");
-
+const errorPage = document.querySelector(".error-page");
 //initially vairables need????
 
 let oldTab = userTab;
@@ -61,6 +61,8 @@ function getfromSessionStorage() {
 
 }
 
+
+
 async function fetchUserWeatherInfo(coordinates) {
     const {lat, lon} = coordinates;
     // make grantcontainer invisible
@@ -81,8 +83,7 @@ async function fetchUserWeatherInfo(coordinates) {
     }
     catch(err) {
         loadingScreen.classList.remove("active");
-        //HW
-
+        errorPage.classList.add("active");
     }
 
 }
@@ -117,7 +118,7 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(showPosition);
     }
     else {
-        //HW - show an alert for no gelolocation support available
+        alert("Geolocation is not supported by this browser.");
     }
 }
 
@@ -163,6 +164,7 @@ async function fetchSearchWeatherInfo(city) {
         renderWeatherInfo(data);
     }
     catch(err) {
-        //hW
+        userInfoContainer.classList.remove("active");
+        errorPage.classList.add("active");
     }
 }
